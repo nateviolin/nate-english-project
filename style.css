@@ -1,17 +1,43 @@
-#removeborders {
-    overflow: hidden;
-    height:740px;
-    width:985px;
+body {
+    max-width: 985px;
+    margin: auto;
 }
 
 h1,h3 {
     /* These styles apply to h1 and h3 tags*/
     text-align: center;
-    font-family: Arial;
+    font-family: Arial sans-serif; /* Text in arial, where available*/
     margin: 0;
 }
 
 h1 {
     /* These styles apply only to h1 tags*/
     font-weight: bold;
+}
+
+#slideshow {
+    position: relative;
+    height: 740px;
+    width: 985px;
+    background-color: gray;
+    margin-left: auto;  /* Auto center the box  */
+    margin-right: auto;
+    margin-bottom: 80px; /* put some space below it  */
+
+    /* These styles are to make images we inject look nice*/
+    background-position: center;
+    background-size: cover;  /* fill the box edge-to-edge*/
+    background-repeat: no-repeat;
+}
+
+#text {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    background-color: white;
+    margin: 0;
+    padding: 5px;
 }

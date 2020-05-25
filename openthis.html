@@ -1,16 +1,32 @@
 <!DOCTYPE html>
-<span style="font-family:Arial"><center><font size="+2"><b>Mapping My Year</b></font><br/>
-<font size="+1">by Nate Lambert</font></center><br><br>
-Welcome to the map of my year! This map is organized based off the chromatic scale, the most common musical scale in Western music. The scale contains twelve equally-spaced tones:<br><br>
-<audio controls>
-  <source src="chromaticcut.mov" type="audio/mp3">
-Your browser does not support the audio element.
-</audio><br><br>
-When any of the twelve tones is played against the resolving tone of the scale (in this case a "C"), one of twelve possible intervals is formed. Each interval has a distinct feeling attached to it, though the interpretation of these feelings may differ slightly depending on the listener. The twelve sites that I chose to portray in my map each correspond to one of the twelve musical intervals on the basis of the emotion that it evokes in me.<br><br>
-Click the green flag to activate the project. If you click out of the project while navigating it, the program will stop running; refresh the page to fix this.<br/><br/>
-<link rel="stylesheet" type="text/css" href="borderless.css">
-<div id="removeborders">
-<iframe style="margin-top:-52px; margin-left:-12px;" src="https://scratch.mit.edu/projects/394278152/embed" allowtransparency="true" width="1010" height="800" frameborder="0" scrolling="no" allowfullscreen></iframe>
-</div>
-</span>
+  <!-- Think of head tags -->
+  <head>
+    <!--  A title tag lets the browser name the tab-->
+    <title>Mapping My Year</title>
+    <!--  links to things like style sheets go up here too -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="all-the-logic.js" async></script>
+</head>
+  <!--  Content goes in the body; helps blind people read your doc -->
+  <body>
+    <!-- Font tags are deprecated — they still work but are not recommended -->
+    <!-- Use Header "H" tags for headers and refer to them in your style sheet -->
+    <h1>Mapping My Year</h1>
+    <h3>by Nate Lambert</h3>
+    <p>Welcome to the map of my year! This map is organized based off the chromatic scale, the most common musical scale in Western music. The scale contains twelve equally-spaced tones:</p>
+    <audio controls>
+      <source src="assets/chromaticcut.mov" type="audio/mp3">
+    Your browser does not support the audio element.
+    </audio>
+    <p>
+      When any of the twelve tones is played against the resolving tone of the scale (in this case a "C"), one of twelve possible intervals is formed. Each interval has a distinct feeling attached to it, though the interpretation of these feelings may differ slightly depending on the listener. The twelve sites that I chose to portray in my map each correspond to one of the twelve musical intervals on the basis of the emotion that it evokes in me.
+    </p>
+    <p>
+      Click the green flag to activate the project. If you click out of the project while navigating it, the program will stop running; refresh the page to fix this.
+    </p>
+    <div id="slideshow" >
+      <p id="text"/>
+    </div>
+    <!--    <iframe style="margin-top:-52px; margin-left:-12px;" src="https://scratch.mit.edu/projects/394278152/embed" allowtransparency="true" width="1010" height="800" frameborder="0" scrolling="no" allowfullscreen></iframe>-->
+  </body>
 </html>
