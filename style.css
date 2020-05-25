@@ -1,0 +1,17 @@
+#removeborders {
+    overflow: hidden;
+    height:740px;
+    width:985px;
+}
+
+h1,h3 {
+    /* These styles apply to h1 and h3 tags*/
+    text-align: center;
+    font-family: Arial;
+    margin: 0;
+}
+
+h1 {
+    /* These styles apply only to h1 tags*/
+    font-weight: bold;
+}
