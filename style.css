@@ -1,28 +1,25 @@
 body {
     max-width: 985px;
-    margin: auto;
+    font-family: Arial, sans-serif; /* Text in arial, where available*/
+    margin: 80px auto ; /* put some space below it  */
 }
 
 h1,h3 {
     /* These styles apply to h1 and h3 tags*/
+    margin: 0;;
+}
+
+.intro-header,.intro-subheader {
     text-align: center;
-    font-family: Arial sans-serif; /* Text in arial, where available*/
-    margin: 0;
 }
 
-h1 {
-    /* These styles apply only to h1 tags*/
-    font-weight: bold;
-}
-
-#slideshow {
+#slide-show {
     position: relative;
     height: 740px;
     width: 985px;
     background-color: gray;
     margin-left: auto;  /* Auto center the box  */
     margin-right: auto;
-    margin-bottom: 80px; /* put some space below it  */
 
     /* These styles are to make images we inject look nice*/
     background-position: center;
@@ -30,7 +27,9 @@ h1 {
     background-repeat: no-repeat;
 }
 
-#text {
+#slide-show__content-container {
+    width: 600px;
+    height: 180px;
     position: absolute;
     bottom: 10px;
     right: 10px;
@@ -38,6 +37,29 @@ h1 {
     border-style: solid;
     border-color: black;
     background-color: white;
-    margin: 0;
     padding: 5px;
+}
+
+#slide-show__play-again-button {
+    width: 50px;
+    height: 50px;
+    border-color: black;
+    border-width: 6px;
+    border-style: solid;
+    border-radius: 50%;
+    padding: 10px;
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    background-color: white;
+}
+
+#slide-show__play-again-button:hover {
+    cursor: pointer;
+    background-color: lightsteelblue;
+}
+
+#slide-show__play-again-button:active {
+    cursor: pointer;
+    background-color: steelblue;
 }
