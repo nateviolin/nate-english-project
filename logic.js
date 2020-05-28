@@ -169,6 +169,7 @@ let currentSlideIndex = firstSlideIndex;
 window.addEventListener("keydown", handleChangeSlide);
 
 function handleChangeSlide(event) {
+  // a triple-equals is an equator: is left the same as right?
   if (event.key === "ArrowRight") {
     goToSlide(currentSlideIndex + 1);
   } else if (event.key === "ArrowLeft") {
@@ -180,6 +181,7 @@ function handleChangeSlide(event) {
 
 function goToSlide(index) {
   if (isIndexWithinBounds(index)) {
+    // a single-equals is an assigner: make left the same as right
     currentSlideIndex = index;
     const slide = slideDataByIndex[index];
 
@@ -218,6 +220,9 @@ function positionText({vertical, horizontal}) {
 }
 
 // Each entry tells us where to set it
+// It's easiest to position always from the top and left
+// but that means we need to do some differential work to support things like
+// center or bottom placement.
 const marginToEdge = 10;
 function convertPosition(position, differential, avoidButton) {
   if (position === "top" || position === "left") {
@@ -230,18 +235,26 @@ function convertPosition(position, differential, avoidButton) {
 }
 
 function setImage(url) {
-  if (url !== "") {
+  // simple if-statements like this look for "truthiness"
+  // is this thing "present," e.g. a non-zero integer, or a non-empty string
+  // of text, or a true boolean value
+  if (url) {
+    // background images need a little decoration to be understood
     slideShowEl.style.backgroundImage = `url(${url})`;
   } else {
     // do nothing
   }
 }
 
-const audioSamples = [];
+// Here we can make a collection of audio samples
+// As we play them, we can store them here for easy replay
+const loadedAudioSamples = [];
+// The recordings I found play each note individually first
+// so we'll fast forward b y 2.45 seconds to just play the chord
 const audioChordTime = 2.45;
 
 function stopAndResetAllAudio() {
-  audioSamples.forEach(sample => {
+  loadedAudioSamples.forEach(sample => {
     sample.pause();
     sample.currentTime = audioChordTime;
   });
@@ -263,11 +276,11 @@ function playAudio(index) {
     return; // do nothing;
   }
 
-  if (!audioSamples[index]) {
-    audioSamples[index] = buildAudioSample(audioUrl);
+  if (!loadedAudioSamples[index]) {
+    loadedAudioSamples[index] = buildAudioSample(audioUrl);
   }
 
-  audioSamples[index].play();
+  loadedAudioSamples[index].play();
 }
 
 function handlePressPlay(event) {
