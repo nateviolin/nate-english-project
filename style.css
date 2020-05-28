@@ -29,11 +29,11 @@ h1,h3 {
 
 #slide-show__content-container {
     width: 600px;
-    height: 180px;
+    height: 200px;
     position: absolute;
     bottom: 10px;
     right: 10px;
-    border-width: 2px;
+    border-width: 4px;
     border-style: solid;
     border-color: black;
     background-color: white;
