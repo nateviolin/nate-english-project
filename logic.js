@@ -8,7 +8,7 @@ const slideDataByIndex = [
       vertical: "center",
       horizontal: "center"
     },
-    image: "assets/images/0_start.png",
+    image: "assets/images/dist/0_start.jpg",
   },
   {
     title: "Minor Second",
@@ -19,7 +19,7 @@ const slideDataByIndex = [
       horizontal: "left"
     },
     audio: "assets/audio/1_minor_second_c.mp3",
-    image: "assets/images/1_questura.png",
+    image: "assets/images/dist/1_questura.jpg",
   },
   {
     title: "Major Second",
@@ -30,7 +30,7 @@ const slideDataByIndex = [
       horizontal: "center"
     },
     audio: "assets/audio/2_major_second_c.mp3",
-    image: "assets/images/2_valle_faul.png",
+    image: "assets/images/dist/2_valle_faul.jpg",
   },
   {
     title: "Minor Third",
@@ -41,8 +41,7 @@ const slideDataByIndex = [
       horizontal: "center"
     },
     audio: "assets/audio/3_minor_third_c.mp3",
-    image: "assets/images/3_bedroom.png",
-
+    image: "assets/images/dist/3_bedroom.jpg",
   },
   {
     title: "Major Third",
@@ -53,8 +52,7 @@ const slideDataByIndex = [
       horizontal: "left"
     },
     audio: "assets/audio/4_major_third_c.mp3",
-    image: "assets/images/4_cera_una_volta.png",
-
+    image: "assets/images/dist/4_cera_una_volta.jpg",
   },
   {
     title: "Perfect Fourth",
@@ -65,8 +63,7 @@ const slideDataByIndex = [
       horizontal: "right"
     },
     audio: "assets/audio/5_perfect_fourth_c.mp3",
-    image: "assets/images/5_porta_romana.png",
-
+    image: "assets/images/dist/5_porta_romana.jpg",
   },
   {
     title: "Tritone",
@@ -77,8 +74,7 @@ const slideDataByIndex = [
       horizontal: "center"
     },
     audio: "assets/audio/6_tritone_c.mp3",
-    image: "assets/images/6_skatepark.png",
-
+    image: "assets/images/dist/6_skatepark.jpg",
   },
   {
     title: "Perfect Fifth",
@@ -89,8 +85,7 @@ const slideDataByIndex = [
       horizontal: "center"
     },
     audio: "assets/audio/7_perfect_fifth_c.mp3",
-    image: "assets/images/7_lantica_latteria.png",
-
+    image: "assets/images/dist/7_lantica_latteria.jpg",
   },
   {
     title: "Minor Sixth",
@@ -101,8 +96,7 @@ const slideDataByIndex = [
       horizontal: "left"
     },
     audio: "assets/audio/8_minor_sixth_c.mp3",
-    image: "assets/images/8_garden.png",
-
+    image: "assets/images/dist/8_garden.jpg",
   },
   {
     title: "Major Sixth",
@@ -113,8 +107,7 @@ const slideDataByIndex = [
       horizontal: "right"
     },
     audio: "assets/audio/9_major_sixth_c.mp3",
-    image: "assets/images/9_sya_campus.png",
-
+    image: "assets/images/dist/9_sya_campus.jpg",
   },
   {
     title: "Minor Seventh",
@@ -125,8 +118,7 @@ const slideDataByIndex = [
       horizontal: "centerr"
     },
     audio: "assets/audio/10_minor_seventh_c.mp3",
-    image: "assets/images/10_piazza_delle_erbe.png",
-
+    image: "assets/images/dist/10_piazza_delle_erbe.jpg",
   },
   {
     title: "Major Seventh",
@@ -137,8 +129,7 @@ const slideDataByIndex = [
       horizontal: "right"
     },
     audio: "assets/audio/11_major_seventh_c.mp3",
-    image: "assets/images/11_piazza_san_lorenzo.png",
-
+    image: "assets/images/dist/11_piazza_san_lorenzo.jpg",
   },
   {
     title: "Octave",
@@ -149,7 +140,7 @@ const slideDataByIndex = [
       horizontal: "right"
     },
     audio: "assets/audio/12_octave_c.mp3",
-    image: "assets/images/12_kitchen.png",
+    image: "assets/images/dist/12_kitchen.jpg",
   },
 ];
 
@@ -249,6 +240,12 @@ function setImage(url) {
 // Here we can make a collection of audio samples
 // As we play them, we can store them here for easy replay
 const loadedAudioSamples = [];
+
+function preloadAllAudio() {
+  for (let index = 0; index < slideDataByIndex.length; index++) {
+    loadAudio(index)
+  }
+}
 // The recordings I found play each note individually first
 // so we'll fast forward b y 2.45 seconds to just play the chord
 const audioChordTime = 2.45;
@@ -268,9 +265,7 @@ function buildAudioSample(audioUrl) {
   return audioSample;
 }
 
-function playAudio(index) {
-  stopAndResetAllAudio();
-
+function loadAudio(index) {
   const audioUrl = slideDataByIndex[index].audio;
   if (!audioUrl) {
     return; // do nothing;
@@ -279,7 +274,10 @@ function playAudio(index) {
   if (!loadedAudioSamples[index]) {
     loadedAudioSamples[index] = buildAudioSample(audioUrl);
   }
+}
 
+function playAudio(index) {
+  stopAndResetAllAudio();
   loadedAudioSamples[index].play();
 }
 
